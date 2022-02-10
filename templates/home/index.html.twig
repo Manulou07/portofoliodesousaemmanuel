@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %} 
+{% block title %}accueil{% endblock %}
+{% block body %}
+
+  <header id="home-header">
+    <div id="header-img"></div>
+    <h1>Emmanuel De sousa</h1>
+    <H2>Developpeur WEB</H2>
+  </header>
+
+  <main  id="home-main">
+
+      <section class="container-fluid p-5" id="projets">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2>Projets</h2>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="container-fluid p-5" id="competence">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2>Compétences</h2>
+          </div>
+        </div>
+
+        <div class="row text-center p-5">
+          <div class="col-4">
+            <h4>Technologies</h4>
+            <div class="dropdown-divider"></div>
+
+            {% for competence in competences %} 
+              {% if competence.categorie =='technologies'%}
+              <div class="col-4 p-2">
+                <ul>
+                  <li>
+                    <div class="row">
+                      <div class="col-4">
+                        <img id="logo" src="{{('img/' ~ competence.logo)}}" /> 
+                      </div>
+                      <div class="col-8 p-2">
+                        {{ competence.name }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              {% endif %} 
+            {% endfor %}
+          </div>
+
+          <div class="col-4">
+            <h4>Frameworks / bibliothèques</h4>
+            <div class="dropdown-divider"></div>
+
+            {% for competence in competences %} 
+              {% if competence.categorie =='framework'%}
+              <div class="col-4 p-2">
+                <ul>
+                  <li>
+                    <div class="row">
+                      <div class="col-4">
+                        <img id="logo" src="{{('img/' ~ competence.logo)}}" /> 
+                      </div>
+                      <div class="col-8 p-2">
+                        {{ competence.name }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              {% endif %} 
+            {% endfor %}
+          </div>
+
+          <div class="col-4">
+            <h4>CMS</h4>
+            <div class="dropdown-divider"></div>
+
+            {% for competence in competences %}
+              {% if competence.categorie =='cms'%}
+              <div class="col-4 p-2">
+                <ul>
+                  <li>
+                    <div class="row">
+                      <div class="col-4">
+                        <img id="logo" src="{{('img/' ~ competence.logo)}}" /> 
+                      </div>
+                      <div class="col-8 p-2">
+                        {{ competence.name }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              {% endif %} 
+            {% endfor %}
+          </div>
+        </div>
+    </section>
+
+    <section class="container-fluid p-5"  id="apropos">
+      <div class="row text-center">
+        <div class="col-12">
+          <h2>A propos</h2>
+        </div>
+      </div>
+
+      <div class="row text-center m-5 p-5">
+        <div class="col-3 p-2"></div>
+        <div class="col-6 p-2">                      
+        {% for apropo in apropos %} 
+            {{ apropo.description }}
+        {% endfor %}
+        <div class="col-3 p-2"></div>
+      </div>
+    </section>
+  </main>
+
+{% endblock %}

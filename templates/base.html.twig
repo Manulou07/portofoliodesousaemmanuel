@@ -1,19 +1,64 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<!DOCTYPE html> 
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+<html lang="fr">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="portofolio emmanuel de sousa">
+        <meta name="keywords" content="porto folio">
+        <meta name="author" content="emmanuel de sousa">
+
+        
+        <title>Portofolio{% block title %}{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="css/base.css">
+
+        {% block stylesheets %}{% endblock %}
+
+       
     </head>
+
     <body>
+
         {% block body %}{% endblock %}
+
+        <footer class="container-fluid" id="home-footer">
+            <div class="row text-center p-5">
+                <div class="col-4">
+                    <div class="dropdown-divider"></div>
+                    <p><a href="#">Haut de page</a></p> 
+                </div>    
+                <div class="col-4 my-auto">
+                    <h5>Emmanuel De Sousa</h5>
+                    <img src="img/logo.png" alt="logo" class="w-25">
+                </div>      
+                <div class="col-4">
+                    <div class="dropdown-divider"></div>
+                    <p>49 rue de l'égalité</p>
+                    <p>94500 CHAMPIGNY SUR MARNE</p>
+                    <p>01 23 45 67 89</p>
+                    <p>desousa.emmanuel@gmail.com</p>
+                </div>    
+            </div>
+            <div class="row">
+                <div class="dropdown-divider"></div>
+                <div class="col-12 text-center">
+                    <p>Copyright &copy; 2022 - Emmanuel De sousa</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+         {% block javascripts %}{% endblock %}
+
     </body>
+
 </html>
