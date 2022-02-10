@@ -6,6 +6,7 @@
     <div id="header-img"></div>
     <h1>Emmanuel De sousa</h1>
     <H2>Developpeur WEB</H2>
+    
   </header>
 
   <main  id="home-main">
@@ -16,6 +17,24 @@
             <h2>Projets</h2>
           </div>
         </div>
+        
+        <div class="row">
+            {% for projet in projets %}
+                {% if loop.index <= 3 %}
+                    <div class="col-6 p-3">
+                        <div class="card bg-light" id="card">
+                            <a href="{{ projet.link }}" target="blank">
+                                <img src="{{('img/' ~ projet.img)}}" alt="photo principale" />
+                            </a>    
+                            <div class="card-body">
+                                <h5 class="card-title">{{ projet.name }} - {{ projet.technologie}}</h5>
+                                <p class="card-text">{{ projet.type}} - {{ projet.description|u.truncate(40,'...', false) }}</p>
+                            </div>
+                        </div>
+                    </div>   
+                {% endif %}
+            {% endfor %}
+            </div>
 
       </section>
 
@@ -116,6 +135,12 @@
         {% endfor %}
         <div class="col-3 p-2"></div>
       </div>
+      <div class="row text-center">
+        <div class="col-12 p-2">
+            <a href="{{('doc/EMMANUEL_DESOUSA_CV.pdf')}}" target="blank" class="btn btn-secondary m-3">Voir mon cv</a>
+        </div>
+      </div>
+      
     </section>
   </main>
 
