@@ -1,0 +1,37 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - COMPETENCE{% endblock %}
+
+{% block body %}
+
+    <section >
+      <h2>MES COMPETENCES</h2>
+   
+      <table class="table text-center table-hover table-sm">
+        <thead>
+            <tr>
+                <th>LOGO</th>
+                <th>NOM</th>
+                <th>CATEGORIE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for competence in competences|reverse %}
+                <tr>
+                    <td class="align-middle"><img class="w-25" src="{{ asset('img/' ~ competence.logo) }}" alt="photo principale {{ competence.name }}"></td>
+                    <td class="align-middle">{{ competence.name }}</td>
+                    <td class="align-middle">{{ competence.categorie }}</td>
+                    <td class="align-middle">
+                        <a href="#" class="btn btn-primary m-2">Modifier</a>
+                        <a href="#" class="btn btn-danger m-2">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end my-5">
+        <a href="{{ path('competence_create') }}" class="btn btn-success ">Ajouter une competence</a>
+    </div>
+
+{% endblock %}

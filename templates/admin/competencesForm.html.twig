@@ -1,0 +1,32 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Competences{% endblock %}
+
+{% block body %}
+
+    {{ form_start(competenceForm) }}
+
+        <div class="row">
+            <div class="col-5">
+                {{ form_row(competenceForm.name, {'label': 'Nom'}) }}
+            </div>
+            <div class="col-7">
+                {{ form_row(competenceForm.logo, {'label': 'Logo'}) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(competenceForm.categorie, {'label': 'Categorie'}) }}
+            </div>
+        </div>
+
+      
+        <div class="col-12 d-flex justify-content-end">
+            <a href="{{ path('admin_competences_index') }}" class="btn btn-danger m-3">Annuler</a>
+            <button class="btn btn-success m-3">Créer</button>
+        </div>
+
+    {{ form_end(competenceForm) }}
+
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Page admin Portofolio">
+        <meta name="keywords" content="Portofolio emmanuel de sousa">
+        <meta name="author" content="emmanuel de sousa">
+
+        
+        <title>PORTOFOLIO{% block title %} {% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+         
+        {% block stylesheets %}{% endblock %}
+    
+    </head>
+
+
+    <body>
+
+        <header class="container-fluid text-center p-3" id="header">
+            <div class="row"> 
+                <div class="col-12" >
+                    <h2>PORTOFOLIO - espace administrateur</h2>
+                </div>
+                <div class="col-12">
+                    <nav>
+                    
+                        <a href="{{ path('admin') }}" title="accueil administrateur"><i class="fas fa-laptop p-4"></i>Accueil admin</a>
+                        <a href="{{ path('admin_apropos_index')}}" title="a propos"><i class="fas fa-book-open p-4"></i>A propos</a>
+                        <a href="{{ path('admin_competences_index')}}" title="competences"><i class="fas fa-dollar-sign p-4"></i>Competence</a>
+                        <a href="#" title="projets"><i class="fas fa-comment p-4"></i>Projets client</a>
+                        <a href="{{ path('home') }}" title="accueil portofolio"><i class="fas fa-home p-4"></i>Accueil site</a>
+                      
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+                <div class="col-12" id="content">
+                    <div class="row p-5">
+                        {% for label, messages in app.flashes %} 
+                            {% for message in messages %}
+                                <div class="col-3"></div>
+                                <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                                    {{ message }}
+                                </div>
+                                <div class="col-3"></div>
+                            {% endfor %}
+                        {% endfor %}
+                       {% block body %}{% endblock %}
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="container-fluid text-center pt-3 pb-1" id="footer">
+            <p>Copyright © 2022 - Emmanuel De sousa</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ ('js/script.js') }}"></script>
+
+        {% block javascripts %}{% endblock %}
+        
+    </body>
+
+</html>

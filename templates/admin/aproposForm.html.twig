@@ -1,0 +1,24 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - apropos{% endblock %}
+
+{% block body %}
+
+{{ form_start(aproposForm)}}
+
+    <div class="col-8 offset-2">
+        {{ form_row(aproposForm.description, {'label':'Description'})}}
+    </div>
+
+
+    <div class="d-flex justify-content-end my-5">
+        <a href="{{ path('admin_apropos_index') }}" class="btn btn-danger m-3">Annuler</a>
+        <button class="btn btn-success m-3">Modifier</button>
+        
+    </div>
+
+{{ form_end(aproposForm)}}
+
+
+
+{% endblock %}

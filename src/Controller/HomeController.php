@@ -27,7 +27,7 @@ class HomeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData(); 
             $email = (new TemplatedEmail())
-                ->from(new Address($contact['email'], $contact['telephone'], $contact['prenom'] . ' ' . $contact['nom']))
+                ->from(new Address($contact['prenom'] . ' ' . $contact['nom']))
                 ->to(new Address('desousa.emmanuel@gmail.com'))
                 ->subject('PORTOFOLIO - demande de contact - ' . $contact['objet'])
                 ->htmlTemplate('contact/index.html.twig') 
@@ -41,7 +41,7 @@ class HomeController extends AbstractController
                 ]);
            
             $mailer->send($email);
-            $this->addFlash('success', 'Votre message a bien été envoyé');
+            $this->addFlash('secondary', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('home');
         }
         
