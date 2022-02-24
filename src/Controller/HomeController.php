@@ -27,7 +27,7 @@ class HomeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData(); 
             $email = (new TemplatedEmail())
-                ->from(new Address($contact['prenom'] . ' ' . $contact['nom']))
+                ->from(new Address($contact['email'], $contact['prenom'] . ' ' . $contact['nom']))
                 ->to(new Address('desousa.emmanuel@gmail.com'))
                 ->subject('PORTOFOLIO - demande de contact - ' . $contact['objet'])
                 ->htmlTemplate('contact/index.html.twig') 
