@@ -2,18 +2,30 @@
 {% block title %}accueil{% endblock %}
 {% block body %}
 
-  <header id="home-header">
-    <div id="header-img"></div>
-    <h1>Emmanuel De sousa</h1>
-    <H2>Developpeur WEB</H2>
-    
-  </header>
+    <header id="home-header">
+      <div id="header-img">
+        <div class="row">
+          <div class="col-6 offset-3 text-center">
+              {% for label, messages in app.flashes %}
+                  {% for message in messages %}
+                      <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+      <h1>Emmanuel De sousa</h1>
+      <H2>Developpeur WEB</H2>
+      
+    </header>
 
-  <main  id="home-main">
+    <main  id="home-main">
 
       <section class="container-fluid p-5" id="projets">
         <div class="row text-center">
-          <div class="col-12">
+          <div class="col-12 p-2">
             <h2>Projets</h2>
           </div>
         </div>
@@ -142,6 +154,41 @@
       </div>
       
     </section>
-  </main>
+    <section class="container-fluid p-5" id="contact">
+        <div class="row text-center">
+            <div class="col-12">
+              <h2>Formulaire de contact</h2>
+            </div>
+        </div>
+          
+        {{ form_start(contactForm) }}
+            <div class="row my-5">
+                <div class="col-3 offset-3">
+                    {{ form_row(contactForm.nom) }}
+                </div>
+                <div class="col-3 mb-3">
+                    {{ form_row(contactForm.prenom) }}
+                </div>
+                <div class="col-3 offset-3 mb-3">
+                    {{ form_row(contactForm.email) }}
+                </div>
+                <div class="col-3 mb-3">
+                    {{ form_row(contactForm.telephone) }}
+                </div>
+                <div class="col-6 offset-3 mb-3">
+                    {{ form_row(contactForm.objet) }}
+                </div>
+                <div class="col-6 offset-3 mb-3">
+                    {{ form_row(contactForm.message) }}
+                </div>
+                                
+                <div class="col-6 offset-3 text-end">
+                    <input type="submit" class="btn btn-secondary" value="Envoyer">
+                </div>
+            </div>
+        {{ form_end(contactForm) }}
+    </section>
+
+</main>
 
 {% endblock %}
